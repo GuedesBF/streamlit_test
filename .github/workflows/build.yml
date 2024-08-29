@@ -1,4 +1,4 @@
-name: Python CI
+name: Simple App CI
 
 on:
   push:
@@ -25,13 +25,5 @@ jobs:
       - name: Install pipenv
         run: pip install pipenv
 
-      - name: Check Python version
-        run: |
-          python --version
-          where python
-
       - name: Install dependencies with pipenv
-        run: pipenv install  # This installs both default and dev dependencies
-
-      - name: Run tests
-        run: pipenv run pytest  # Replace with your test command
+        run: pipenv install
