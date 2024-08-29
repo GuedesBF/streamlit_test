@@ -6,10 +6,10 @@ name = "pypi"
 [packages]
 streamlit = "*"
 pandas = "*"
-pyinstaller = "*"
 rapidfuzz = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.8"
+python_version = "3.12"
+python_full_version = "3.12.4"
