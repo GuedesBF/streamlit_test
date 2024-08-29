@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # You can use 'windows-latest' if you prefer Windows
+    runs-on: windows-latest
 
     steps:
       - name: Checkout code
@@ -17,7 +17,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.12'
+          python-version: '3.12'  # Ensure this matches the version you need
 
       - name: Upgrade pip
         run: python -m pip install --upgrade pip
@@ -26,10 +26,13 @@ jobs:
         run: pip install pipenv
 
       - name: Check Python version
-        run: python --version
+        run: |
+          python --version
+          where python  # Prints the Python path on Windows
 
       - name: Install dependencies with pipenv
-        run: pipenv install --dev
+        run: |
+          pipenv --python $(where python) install --dev
 
       - name: Run tests
         run: |
